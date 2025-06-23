@@ -7,7 +7,7 @@
   <div class="card-body">
     <h2 class="card-title">
       {{ product().title }}
-      <div class="badge badge-secondary"> {{ product().price }} </div>
+      <div class="badge badge-secondary"> {{ product().price | currency  }} </div>
     </h2>
     <p> {{ product().description }} </p>
     <div class="card-actions justify-end">
