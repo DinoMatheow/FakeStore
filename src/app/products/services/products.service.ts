@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { environment } from '../../../environment/environment';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { ProductsStore } from '../interfaces/products.interface';
 
 const baseUrl = environment.baseUrl + 'products';
@@ -31,6 +31,20 @@ export class ProductsService {
   }
 
 
+
+  getProductByIdSlug(idSlug: string): Observable<ProductsStore | undefined>{
+     return this.getProducts({limit:20}).pipe(
+      map(products => products.find(product => this.slugify(product.title) === idSlug))
+     );
+  }
+
+  public slugify(text: string): string {
+    return text
+      .toLowerCase()
+      .replace(/['"]/g, '') // elimina comillas
+      .replace(/\s+/g, '-') // reemplaza espacios por guiones
+      .replace(/[^a-z0-9-]/g, ''); // elimina caracteres especiales
+  }
 
 
 }

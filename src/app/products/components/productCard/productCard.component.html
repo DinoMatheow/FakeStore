@@ -1,18 +1,24 @@
 <div class="card bg-base-100 w-96 shadow-sm">
-  <figure>
-    <img
-      [src]="product().image"
-      [alt]="product().id" />
-  </figure>
+  <a [routerLink]="['/product', getSlug(product().title) ]" routerLinkActive="btn btn-primary">
+      <figure >
+      <img
+        [src]="product().image"
+        [alt]="product().id" />
+      </figure>
+    </a>
   <div class="card-body">
-    <h2 class="card-title">
-      {{ product().title }}
-      <div class="badge badge-secondary"> {{ product().price | currency  }} </div>
-    </h2>
+
+    <a [routerLink]="['/product', getSlug(product().title) ]"  routerLinkActive="btn btn-primary" class="card-title hover:underline">
+
+      <h2 class="card-title">
+        {{ product().title }}
+        <div class="badge badge-secondary"> {{ product().price | currency  }} </div>
+      </h2>
+    </a>
+
     <p> {{ product().description }} </p>
     <div class="card-actions justify-end">
       <div class="badge badge-outline"> {{ product().category }} </div>
-      <div class="badge badge-outline"> {{ product().rating }} </div>
     </div>
   </div>
 </div>
