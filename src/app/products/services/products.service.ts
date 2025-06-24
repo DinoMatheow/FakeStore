@@ -9,7 +9,7 @@ const baseUrl = environment.baseUrl + 'products';
 interface Options{
   limit: number,
   category?: string,
-
+  page?: number
 }
 
 @Injectable({providedIn: 'root'})
