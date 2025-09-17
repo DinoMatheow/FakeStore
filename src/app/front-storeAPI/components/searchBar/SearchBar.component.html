@@ -1,0 +1,41 @@
+<input type="text" placeholder="Search" class="input input-bordered w-24 md:w-auto"
+[value]="query()"
+(input)="query.set($any($event.target).value)"
+/>
+
+
+@if (filtered().length > 0) {
+  <div
+    class="absolute left-0 top-full mt-2 w-full
+           bg-slate-100 border border-slate-300
+           rounded-lg shadow-xl max-h-60 overflow-auto z-50">
+    <h3 class="text-slate-800 font-semibold px-4 py-2 border-b border-slate-200">
+      Searching
+    </h3>
+
+    <ul>
+      @for (item of filtered(); track $index) {
+        <li class="px-0">
+          <a
+            [routerLink]="['/product', item.id]"
+            (click)="query.set(item.title); filtered.set([])"
+            class="flex items-center gap-2 px-4 py-2
+                   hover:bg-indigo-100
+                   transition-colors duration-150
+                   w-full block"
+          >
+            <picture class="h-10 w-10 flex-none">
+              <img [src]="item.image" [alt]="item.title"
+                   class="h-10 w-10 rounded-md object-cover" />
+            </picture>
+            <div>
+              <h4 class="text-slate-800 text-sm font-medium">
+                {{ item.title }}
+              </h4>
+            </div>
+          </a>
+        </li>
+      }
+    </ul>
+  </div>
+}

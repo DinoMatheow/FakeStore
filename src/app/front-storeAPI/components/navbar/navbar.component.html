@@ -1,80 +1,62 @@
 <div class="navbar bg-base-200 shadow-sm relative z-50">
-  <div class="flex-1">
-    <a class="btn btn-ghost text-xl"  routerLink="">StoreApi
-
-    </a>
+  <div class="navbar-start">
+    <a class="btn btn-ghost text-xl" routerLink="">StoreApi</a>
   </div>
 
+  <div class="relative w-full max-w-xl mx-auto">
+    <search-bar [product]="products()"></search-bar>
+  </div>
 
-
-
-  <div class="dropdown">
-    <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>
+  <div class="navbar-end flex gap-4">
+    <div class="hidden lg:block">
+      <ul class="menu menu-horizontal px-1">
+        <li>
+          <details>
+            <summary>Category</summary>
+            <ul class="bg-base-100 rounded-t-none p-2">
+              <li><a [routerLink]="['/category', 'electronics']">Electronics</a></li>
+              <li><a [routerLink]="['/category', 'jewelery']">Jewelery</a></li>
+              <li><a [routerLink]="['/category', 'mens-clothing']">Mens Clothing</a></li>
+              <li><a [routerLink]="['/category', 'womens-clothing']">Womens Clothing</a></li>
+            </ul>
+          </details>
+        </li>
+      </ul>
     </div>
-    <ul
-      tabindex="0"
-      class="menu menu-sm dropdown-content bg-base-300 rounded-box z-52 mt-3 w-52 p-2 shadow">
-      <li>
-        <a>Category</a>
-        <ul class="bg-base-100 rounded-t-none p-2">
-          <li><a [routerLink]="['/category', 'electronics']">Electronics</a></li>
-          <li><a [routerLink]="['/category', 'jewelery']">Jewelery</a></li>
-          <li><a [routerLink]="['/category', 'mens-clothing']">MenSClothing</a></li>
-          <li><a [routerLink]="['/category', 'womens-clothing']">WomenSClothing</a></li>
-        </ul>
-      </li>
-    </ul>
-  </div>
 
-
-
-  <div class="navbar-center lg:flex">
-    <ul class="menu menu-horizontal px-1">
-      <li>
-        <details>
-          <summary>Category</summary>
+    <div class="dropdown lg:hidden">
+      <div tabindex="0" role="button" class="btn btn-ghost">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none"
+             viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 6h16M4 12h8m-8 6h16" />
+        </svg>
+      </div>
+      <ul tabindex="0"
+          class="menu menu-sm dropdown-content bg-base-300 rounded-box mt-3 w-52 p-2 shadow">
+        <li>
+          <a>Category</a>
           <ul class="bg-base-100 rounded-t-none p-2">
             <li><a [routerLink]="['/category', 'electronics']">Electronics</a></li>
             <li><a [routerLink]="['/category', 'jewelery']">Jewelery</a></li>
-            <li><a [routerLink]="['/category', 'mens-clothing']">MenSClothing</a></li>
-            <li><a [routerLink]="['/category', 'womens-clothing']">WomenSClothing</a></li>
-
+            <li><a [routerLink]="['/category', 'mens-clothing']">Mens Clothing</a></li>
+            <li><a [routerLink]="['/category', 'womens-clothing']">Womens Clothing</a></li>
           </ul>
-        </details>
-      </li>
-    </ul>
-  </div>
+        </li>
+      </ul>
+    </div>
 
-
-
-
-
-
-
-
-
-
-
-  <div class="flex gap-2">
-    <input type="text" placeholder="Search" class="input input-bordered w-24 md:w-auto" />
     <div class="dropdown dropdown-end">
       <div tabindex="0" role="button" class="btn btn-ghost btn-circle avatar">
         <div class="w-10 rounded-full">
           <img
-            alt="Tailwind CSS Navbar component"
-            src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+            src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
+            alt="profile" />
         </div>
       </div>
-      <ul
-        tabindex="0"
-        class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-        <li>
-          <a class="justify-between">
-            Profile
-            <span class="badge">New</span>
-          </a>
-        </li>
+      <ul tabindex="0"
+          class="menu menu-sm dropdown-content bg-base-100 rounded-box mt-3 w-52 p-2 shadow">
+        <li><a class="justify-between">Profile <span class="badge">New</span></a></li>
         <li><a>Settings</a></li>
         <li><a>Logout</a></li>
       </ul>

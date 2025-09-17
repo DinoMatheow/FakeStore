@@ -12,7 +12,7 @@ import { ProductCardComponent } from '../../../products/components/productCard/p
 export class HomePageComponent {
 
   productsService = inject(ProductsService);
-  limit = signal(10);
+  limit = signal(30);
   category = signal('');
 
   productsResource = rxResource({

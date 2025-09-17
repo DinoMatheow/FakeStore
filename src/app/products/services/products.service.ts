@@ -3,8 +3,10 @@ import { inject, Injectable } from '@angular/core';
 import { environment } from '../../../environment/environment';
 import { Observable } from 'rxjs';
 import { ProductsStore } from '../interfaces/products.interface';
+import { ProductID } from '../interfaces/productId.interface';
 
 const baseUrl = environment.baseUrl + 'products';
+// const baseUrlId = environment.baseUrl + 'products7';
 
 interface Options{
   limit: number,
@@ -29,6 +31,13 @@ export class ProductsService {
       }
     })
   }
+
+  getProductById(id: number): Observable<ProductID>{
+    return this.http.get<ProductID>(baseUrl + `/${id}`, {
+    })
+  }
+
+
 
 
 

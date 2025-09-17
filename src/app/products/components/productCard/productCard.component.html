@@ -1,18 +1,39 @@
-<div class="card bg-base-100 w-96 shadow-sm">
-  <figure>
-    <img
-      [src]="product().image"
-      [alt]="product().id" />
-  </figure>
-  <div class="card-body">
-    <h2 class="card-title">
-      {{ product().title }}
-      <div class="badge badge-secondary"> {{ product().price | currency  }} </div>
-    </h2>
-    <p> {{ product().description }} </p>
-    <div class="card-actions justify-end">
-      <div class="badge badge-outline"> {{ product().category }} </div>
-      <div class="badge badge-outline"> {{ product().rating }} </div>
+@if (product()) {
+  <a [routerLink]="['/product', product().id]" class="block group">
+    <div class="card-body bg-gradient-to-b from-amber-50 to-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden">
+
+      <!-- Imagen con efecto hover -->
+      <div class="overflow-hidden rounded-t-2xl">
+        <img
+          [src]="product().image"
+          [alt]="product().id"
+          class="w-full h-80 object-cover transform group-hover:scale-105 transition-transform duration-500"
+        />
+      </div>
+
+      <!-- Información -->
+      <div class="p-5">
+        <h2 class="card-title text-xl md:text-2xl font-bold text-gray-900 flex justify-between items-center">
+          {{ product().title }}
+          <span class="badge badge-secondary bg-indigo-600 text-white px-3 py-1 rounded-full shadow-md">
+            {{ product().price | currency }}
+          </span>
+        </h2>
+
+        <p class="text-gray-600 text-sm md:text-base mt-2 line-clamp-3">
+          {{ product().description }}
+        </p>
+
+        <!-- Badges -->
+        <div class="card-actions justify-start gap-2 mt-4 flex flex-wrap">
+          <div class="badge badge-outline bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full">
+            {{ product().category }}
+          </div>
+          <div class="badge badge-outline bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full">
+            ⭐ {{ product().rating.rate }}
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
+  </a>
+}

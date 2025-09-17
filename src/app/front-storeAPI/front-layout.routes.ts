@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { FrontStoreApiLayoutComponent } from './layouts/front-storeApi-layout/front-storeApi-layout.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { CategoryPageComponent } from './pages/category-page/category-page.component';
+import { ProductPageComponent } from './pages/product-page/product-page.component';
 
 export const FrontLayoutroutes: Routes = [
 
@@ -16,6 +17,10 @@ export const FrontLayoutroutes: Routes = [
       {
         path:'category/:category',
         component:CategoryPageComponent,
+      },
+      {
+        path:'product/:id',
+        component:ProductPageComponent
       }
     ]
   }

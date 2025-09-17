@@ -30,7 +30,7 @@ export class CategoryPageComponent {
   ))
 
   productsService = inject(ProductsService);
-  limit = signal(10);
+  limit = signal(20);
 
   productsResource = rxResource({
     request : ()=> ({
