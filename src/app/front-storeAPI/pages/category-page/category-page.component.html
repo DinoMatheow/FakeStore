@@ -1,5 +1,26 @@
-<h1 class="text-3xl font-bold font-montserrat">Todos los productos {{ categoryProducts() }} </h1>
-<h2 class="text-xl mb-5">Para todos los gustos</h2>
+<section class="text-center py-12 bg-gradient-to-r from-indigo-50 via-white to-pink-50">
+  <div class="max-w-3xl mx-auto px-4">
+    <!-- Título principal -->
+    <h1 class="text-4xl md:text-5xl font-extrabold font-montserrat text-indigo-700 mb-4 drop-shadow-lg">
+      Todos los productos de {{ categoryProducts() }}
+    </h1>
+
+    <!-- Subtítulo -->
+    <h2 class="text-lg md:text-xl text-gray-600 mb-6">
+      Para todos los gustos y estilos
+    </h2>
+
+    <!-- Línea decorativa -->
+    <div class="flex justify-center mb-8">
+      <span class="w-24 h-1 bg-indigo-400 rounded-full mr-2 animate-pulse"></span>
+      <span class="w-8 h-1 bg-pink-400 rounded-full animate-pulse"></span>
+    </div>
+
+    <!-- Texto adicional -->
+    <p class="text-gray-500 text-sm md:text-base leading-relaxed">
+    </p>
+  </div>
+</section>
 
 <div
   class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-2 gap-3"
